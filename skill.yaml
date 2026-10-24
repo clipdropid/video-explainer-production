@@ -1,0 +1,5 @@
+name: "video_explainer_production"
+title: "Video explainer production (Kok Bisa style)"
+description: "Produce animated explainer videos in the Kok Bisa imitation standard from a narration audio and a beat sheet storyboard, using the single-file HTML plus frame render pipeline and the measured quality gates of the locked golden sample. Scope by user decision (24 Oct 2026): shorts under 60 seconds. Activated by the trigger phrase mode explainer."
+category: "Work and knowledge"
+include_in_prompt: false
