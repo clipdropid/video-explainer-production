@@ -1,0 +1,26 @@
+{
+  "project": "short_ai_agents",
+  "stage": "srt_analyst",
+  "version": "0.1.0",
+  "input": {
+    "source": "srt",
+    "required": [
+      "timestamp_start",
+      "timestamp_end",
+      "text"
+    ]
+  },
+  "output": {
+    "format": "json",
+    "schema": {
+      "cue_id": "integer",
+      "start": "float_seconds",
+      "end": "float_seconds",
+      "duration": "float_seconds",
+      "text": "string",
+      "beat_group_id": "string|null",
+      "role": "hook|explanation|contrast|climax|cta",
+      "summary": "string|null"
+    }
+  }
+}
