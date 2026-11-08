@@ -1,26 +1,50 @@
 {
   "project": "short_ai_agents",
   "stage": "srt_analyst",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "input": {
     "source": "srt",
-    "required": [
-      "timestamp_start",
-      "timestamp_end",
+    "required_fields": [
+      "cue_id",
+      "start",
+      "end",
       "text"
     ]
   },
   "output": {
     "format": "json",
     "schema": {
-      "cue_id": "integer",
-      "start": "float_seconds",
-      "end": "float_seconds",
-      "duration": "float_seconds",
-      "text": "string",
-      "beat_group_id": "string|null",
-      "role": "hook|explanation|contrast|climax|cta",
-      "summary": "string|null"
+      "project": "string",
+      "stage": "string",
+      "version": "string",
+      "source_file": "string",
+      "generated_at": "ISO_8601_datetime",
+      "validation": {
+        "warning_count": "integer",
+        "warnings": ["string"],
+        "cue_count": "integer"
+      },
+      "cues": [
+        {
+          "cue_id": "integer",
+          "start": "float_seconds",
+          "end": "float_seconds",
+          "duration": "float_seconds",
+          "text": "string"
+        }
+      ],
+      "beats": [
+        {
+          "beat_id": "string",
+          "start": "float_seconds",
+          "end": "float_seconds",
+          "duration": "float_seconds",
+          "cue_ids": ["integer"],
+          "role": "hook|explanation|contrast|climax|cta",
+          "summary": "string",
+          "text": "string"
+        }
+      ]
     }
   }
 }
