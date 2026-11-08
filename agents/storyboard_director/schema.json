@@ -1,0 +1,45 @@
+{
+  "project": "short_ai_agents",
+  "stage": "storyboard_director",
+  "version": "0.1.0",
+  "input": {
+    "source": "beat_map",
+    "required_fields": [
+      "beat_id",
+      "start",
+      "end",
+      "duration",
+      "role",
+      "text"
+    ]
+  },
+  "output": {
+    "format": "json",
+    "schema": {
+      "project": "string",
+      "stage": "string",
+      "version": "string",
+      "source_file": "string",
+      "generated_at": "ISO_8601_datetime",
+      "style": "string",
+      "total_duration": "float_seconds",
+      "storyboard": [
+        {
+          "shot_id": "string",
+          "beat_id": "string",
+          "start": "float_seconds",
+          "end": "float_seconds",
+          "duration": "float_seconds",
+          "role": "hook|explanation|contrast|climax|cta",
+          "shot_type": "wide|medium|close|detail|overhead|split|insert",
+          "framing": "string",
+          "camera": "string",
+          "visual_goal": "string",
+          "motif": "string",
+          "transition": "string",
+          "notes": "string"
+        }
+      ]
+    }
+  }
+}
