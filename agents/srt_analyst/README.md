@@ -1,13 +1,24 @@
 # SRT Analyst
 
-The SRT Analyst reads the subtitle file, validates it, and converts subtitle cues into a beat map that the Storyboard Director can use.
+The SRT Analyst is the first stage in the `short_ai_agents` workflow.
+
+Purpose:
+- validate subtitle timing and structure
+- preserve original cue text and timestamps
+- group related cue lines into beats
+- hand off a structured beat map to the Storyboard Director
+
+Scope:
+- input: subtitle file (`.srt`)
+- output: `*.beat_map.json`
+- not responsible for visual creation, subtitle generation, or editing
 
 Responsibilities:
-- Validate timestamp format and ordering
-- Detect malformed entries or overlaps
-- Keep original text and timing intact
-- Group adjacent or related cues into beats
-- Tag each beat with a role (hook, explanation, contrast, climax, call-to-action)
-- Produce a JSON beat map for the next stage
+1. Validate the file format and cue timestamps.
+2. Detect malformed blocks, overlaps, or invalid ranges.
+3. Keep the original cue timing and text unchanged.
+4. Group adjacent cues into a beat when they are short, tightly connected, or part of the same idea.
+5. Assign each beat a role such as `hook`, `explanation`, `contrast`, `climax`, or `cta`.
+6. Produce a machine-readable beat map for Storyboard Director.
 
-This stage does not create scenes or visuals. It prepares the narrative structure.
+This stage is deterministic and lightweight. It should be run before any creative decisions are made.
